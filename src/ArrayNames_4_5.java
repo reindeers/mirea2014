@@ -14,6 +14,8 @@
 
 
  */
+
+
 public class ArrayNames_4_5 {
     public static void main(String[] args) {
         String[] names = {"Иван", "Петр"};
@@ -30,6 +32,10 @@ public class ArrayNames_4_5 {
         for (int i = 0; i <  resConcat.length; i++){
             System.out.print(resConcat[i]);
         }
+
+        boolean[][] mask = {{true, true, true, true},{true, false, false, false},{true, true, false, true}, {true, false, false, true}};
+        boolean[][] mask2 = new boolean[4][4];
+        LifeGame(mask, mask2); //ToDO: цикл
     }
 
     private static String[]  greet(String[] names){
@@ -74,5 +80,53 @@ public class ArrayNames_4_5 {
   d.setMask(mask);
 
   */
+
+    private static void LifeGame(boolean[][]mask, boolean[][]mask2){
+       // Display d = new Display();
+
+       // d.setMask(mask);
+        int xM, xP;
+        int yM, yP;
+
+
+        for (int i = 0; i < (mask.length); i++) {
+            if (i == 0) xM = 3; else xM = i - 1;
+            if (i == 3) xP = 0; else xP = i + 1;
+
+            for (int j = 0; j < (mask.length); j++) {
+                if (j == 0) yM = 3; else yM = j - 1;
+                if (j == 3) yP = 0; else yP = j + 1;
+                int count1 = 0;
+                    if (mask[i][j]) {
+
+                        if (mask[i][yP]) count1++;
+                        if (mask[i][yM]) count1++;
+                        if (mask[xP][j]) count1++;
+                        if (mask[xM][j]) count1++;
+                        if (mask[xP][yP]) count1++;
+                        if (mask[xP][yM]) count1++;
+                        if (mask[xM][yM]) count1++;
+                        if (mask[xM][yP]) count1++;
+
+                        if (count1 < 2) mask2[i][j] = false; //ToDo: сделать case, вынести отдельной функцией, отрисовывать
+                        if ((count1 == 2) || (count1 == 3)) mask2[i][j] = true;
+                        if (count1 > 3) mask2[i][j] = false;
+
+                    } else if (!mask[i][j]) {
+                        if (mask[i][yP]) count1++;
+                        if (mask[i][yM]) count1++;
+                        if (mask[xP][j]) count1++;
+                        if (mask[xM][j]) count1++;
+                        if (mask[xP][yP]) count1++;
+                        if (mask[xP][yM]) count1++;
+                        if (mask[xM][yM]) count1++;
+                        if (mask[xM][yP]) count1++;
+                        if (count1 == 3) mask2[i][j] = true;
+                    }
+                }
+            }
+        }
+     //   d.setMask(mask);
+
 
 }
