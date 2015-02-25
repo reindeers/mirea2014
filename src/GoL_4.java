@@ -1,9 +1,6 @@
 /**
  * Created by sever on 22.02.2015.
- */
-
-  /*
-
+ *
   Игра "Жизнь". Для отображения используйте класс Display и метод setMask:
 
   Display d = new Display();
@@ -16,23 +13,24 @@ public class GoL_4 {
 
         boolean[][] mask2 = {{true, true, true, true},{true, false, false, false},{true, true, false, true}, {true, false, false, true}};
         boolean[][] mask = new boolean[4][4];
+        Display d = new Display();
+
         while (1==1){
+            d.setMask(mask);
             System.arraycopy(mask2, 0, mask, 0, mask2.length);
-            LifeGameSimple(mask, mask2); //ToDO: проверка
+            LifeGameSimple(mask, mask2); //ToDO: проверка /* Самая простая версия: простой перебор соседних клеток. */
         }
 
     }
 
     private static void LifeGameSimple(boolean[][]mask, boolean[][]mask2){
-        // Display d = new Display();
-        // d.setMask(mask);
         int count1 = 0;
         for (int i = 0; i < (mask.length); i++) {
             for (int j = 0; j < (mask.length); j++) {
 
                 if (mask[i][j]) {
                     count1 = countTrue(mask, i, j);
-                    if (count1 < 2) mask2[i][j] = false; //ToDo: отрисовывать
+                    if (count1 < 2) mask2[i][j] = false;
                     if ((count1 == 2) || (count1 == 3)) mask2[i][j] = true;
                     if (count1 > 3) mask2[i][j] = false;
                 } else if (!mask[i][j]) {
@@ -65,6 +63,4 @@ public class GoL_4 {
 
         return cnt;
     }
-    //   d.setMask(mask);
-
 }
