@@ -1,27 +1,13 @@
 /**
- * Created by student on 11.03.2015.
+ * Created by m.vlasova on 12.03.2015.
  */
 public class Point {
+    double x, y;
 
-private double x, y;
-
-    Point(double х, double у) {
-        this.x = x;
-        this.y = y;
+    Point(double хt, double уt) {
+        x = хt;
+        y = уt;
     }
-
-    public double getX(){
-        return this.x;
-    }
-
-    public double getY(){
-        return this.y;
-    }
-
-    private double multipleP(){
-        return this.getX()*this.getY();
-    }
-
 
 
 }
