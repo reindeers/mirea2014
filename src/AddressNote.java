@@ -32,9 +32,9 @@ public class AddressNote {
     }
 
     int[] find(String name){
-        int[] arr = {};
+        int[] arr = new int[cnt];
         int c = 0;
-        for (int i = 0; i < this.addressList.length; i++){
+        for (int i = 0; i < cnt; i++){
             if (this.addressList[i].name.equals(name)){
                 arr[c] = i;
                 c++;

@@ -41,10 +41,11 @@ public class AddressInterface {
                     System.out.println("Введите имя");
                     String name = sc.nextLine();
                     int[] num = book.find(name);
+
                     if (num.length == 0){
                         System.out.println("Ничего не найдено");
                     } else {
-                        for(int i : num) System.out.println(book.get(i));
+                        for(int i : num) System.out.println(book.get(i).name + "  " + book.get(i).email + "  " + book.get(i).number);
                     }
                     break;
 
@@ -68,6 +69,11 @@ public class AddressInterface {
                 case 5:{
                     System.out.println("Введите индекс");
                     int id = Integer.parseInt(sc.nextLine());
+
+                    if (id >= book.getCount()) {
+                        System.out.println("Столько записей в книге нет");
+                        break;
+                    }
 
                     System.out.println("Введите имя");
                     String name = sc.nextLine();
