@@ -48,7 +48,7 @@ public class AddressNote {
     }
 
     void print(Address entry){
-        System.out.print(entry); //ToDo: форматирование
+        System.out.print(entry.name + "  " + entry.email + "  " + entry.number);
     }
 
     void change(int id, Address adr){

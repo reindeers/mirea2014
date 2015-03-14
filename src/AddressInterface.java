@@ -51,7 +51,10 @@ public class AddressInterface {
                 }
 
                 case 3:{
-                    //такое
+                    for(int i = 0; i < book.getCount(); i++){
+                        book.print(book.get(i));
+                    }
+                    break;
                 }
 
                 case 4:{
@@ -84,7 +87,7 @@ public class AddressInterface {
                 case 6:{
                     return;
                 }
-                
+
                 default: {
                     return;
                 }
