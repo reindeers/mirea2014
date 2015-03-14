@@ -31,13 +31,13 @@ public class AddressNote {
         this.cnt++;
     }
 
-    int[] find(String name){ //если вернулся ноль - ничего не найдено
+    int[] find(String name){
         int[] arr = {};
         int c = 0;
         for (int i = 0; i < this.addressList.length; i++){
             if (this.addressList[i].name.equals(name)){
-                c++;
                 arr[c] = i;
+                c++;
             }
         }
         return arr;
@@ -48,7 +48,13 @@ public class AddressNote {
     }
 
     void print(Address entry){
-        System.out.print(entry);
+        System.out.print(entry); //ToDo: форматирование
+    }
+
+    void change(int id, Address adr){
+        this.addressList[id].name = adr.name;
+        this.addressList[id].email =  adr.email;
+        this.addressList[id].number =  adr.number;
     }
 
     void delete(int index){

@@ -5,13 +5,12 @@
 
 public class Address {
     String name, email;
-    int number, index;
+    int number;
 
-    Address(String name, String email, int number, int index){
+    Address(String name, String email, int number){
         this.name = name;
         this.email = email;
         this.number = number;
-        this.index = index;
 
     }
 }
