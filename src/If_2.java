@@ -12,8 +12,7 @@ public class If_2 {
     }
 
     private static void calcmethod(double a, double b, double c) {
-        double D = 0;
-        D = b * b - 4 * a * c;
+        double  D = b * b - 4 * a * c;
 
         if (D > 0) {
             System.out.println("Два корня:  " + ((Math.sqrt(D) - b) / 2 * a) +";  " + (-(Math.sqrt(D) - b) / 2 * a));
