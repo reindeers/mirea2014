@@ -28,13 +28,17 @@ public class AddressNote {
     int[] find(String name){
         int[] arr = new int[cnt];
         int c = 0;
+
         for (int i = 0; i < cnt; i++){
             if (this.addressList[i].name.equals(name)){
                 arr[c] = i;
                 c++;
             }
         }
-        return arr;
+        int[] r =  new int[c];
+        System.arraycopy(arr, 0, r, 0, c);
+
+        return r;
     }
     Address get(int index){
         return this.addressList[index];
@@ -55,4 +59,5 @@ public class AddressNote {
     int getCount(){
         return this.cnt;
     }
+
 }
