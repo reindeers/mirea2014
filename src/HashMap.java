@@ -3,20 +3,19 @@ import java.util.Map;
 /**
  * Created by sever on 22.03.2015.
  */
-public class HashMap<K, V> implements MyMap<K, V> { //+ добавить хэширование с цепочками
+public class HashMap<K, V> implements MyMap<K, V> { // ToDo: добавить хэширование с цепочками
 
     private int cnt = 0;
-   // Node<K,V>[]  ar = (Node<K,V>[])new Node[1000];
     private Node<K, V>[] ar;
 
 
     HashMap(){
-        ar = (Node<K,V>[])new Node<K,V>[1000]; //исправить
+        ar = (Node<K,V>[])new Node[1000]; //ToDo: fix
     }
 
     static final int hash(Object key) {
         int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16); //алгоритм!
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16); //ToDo: алгоритм
     }
 
     public void put(K key, V value){
@@ -30,11 +29,11 @@ public class HashMap<K, V> implements MyMap<K, V> { //+ добавить хэш�
     }
 
     public void remove(K key){
-        ar[hash(key)] = null; //??
+        ar[hash(key)] = null; //ToDo: fix
     }
 
     public int hash(){
-        return 0; //исправить
+        return 0; //ToDo: fix
     }
     public int size(){
         return cnt;
@@ -57,7 +56,7 @@ public class HashMap<K, V> implements MyMap<K, V> { //+ добавить хэш�
 
         public final int hashCode() {
             return Objects.hashCode(key) ^ Objects.hashCode(value);
-        } //посмотреть алгоритм
+        } //ToDo: ?
 
         public final V setValue(V newValue) {
             V oldValue = value;
@@ -66,7 +65,7 @@ public class HashMap<K, V> implements MyMap<K, V> { //+ добавить хэш�
         }
 
         public final boolean equals(Object o) {
-            return false; //не реализовано
+            return false; //ToDo: fix
         }
     }
 
