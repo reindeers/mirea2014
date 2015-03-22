@@ -8,7 +8,7 @@ public class NaturalNumber implements Iterator{
     private BigInteger c = new BigInteger("1");
 
     public BigInteger next(){
-        this.cnt = cnt.add(c);
-        return this.cnt;
+        cnt = cnt.add(c);
+        return cnt;
     }
 }
