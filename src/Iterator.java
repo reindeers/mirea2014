@@ -3,5 +3,6 @@
  */
 public interface Iterator<BigInteger> {
     BigInteger next();
+    boolean hasNext();
 
 }

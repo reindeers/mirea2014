@@ -20,4 +20,8 @@ public class FibonacciNumber implements Iterator {
         }
 
     }
+
+    public boolean hasNext(){
+        return true;
+    }
 }
