@@ -1,6 +1,8 @@
 import java.util.Objects;
 import java.util.Map;
-
+/**
+ * Created by sever on 22.03.2015.
+ */
 public class HashMap<K, V> implements MyMap<K, V> { // ToDo: проверить существующее хэшированние
     private int cnt = 0;
     private Node<K, V>[] ar;
@@ -21,11 +23,11 @@ public class HashMap<K, V> implements MyMap<K, V> { // ToDo: проверить 
         cnt++;
     }
     public V get(K key){
-        if (ar[hash(key)] != null | ar[hash(key)].isDeletedFlag()) return ar[hash(key)].getValue();
+        if (ar[hash(key)] != null || !ar[hash(key)].isDeletedFlag()) return ar[hash(key)].getValue();
         else return null;
     }
     public void remove(K key){
-        if (!ar[hash(key)].isDeletedFlag()) { ar[hash(key)].deletedFlag = false; cnt--; } //ToDO: все равно выдает значение
+        if (!ar[hash(key)].isDeletedFlag()) { ar[hash(key)].deletedFlag = true; cnt--; } //ToDO: все равно выдает значение
     }
 
     public int size(){
