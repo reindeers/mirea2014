@@ -23,11 +23,11 @@ public class HashMap<K, V> implements MyMap<K, V> { // ToDo: проверить 
         cnt++;
     }
     public V get(K key){
-        if (ar[hash(key)] != null || !ar[hash(key)].isDeletedFlag()) return ar[hash(key)].getValue();
+        if ((ar[hash(key)] != null) & (!ar[hash(key)].isDeletedFlag())) return ar[hash(key)].getValue();
         else return null;
     }
     public void remove(K key){
-        if (!ar[hash(key)].isDeletedFlag()) { ar[hash(key)].deletedFlag = true; cnt--; } //ToDO: все равно выдает значение
+        if (!ar[hash(key)].isDeletedFlag()) { ar[hash(key)].deletedFlag = true; cnt--; } 
     }
 
     public int size(){
