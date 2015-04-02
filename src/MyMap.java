@@ -5,6 +5,6 @@ public interface MyMap<K, V> {
     public V get(K key);
     void put(K key, V value);
     void remove(K key);
-    int hash();
+    int hash(Object k);
     int size();
 }

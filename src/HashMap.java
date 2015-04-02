@@ -8,7 +8,7 @@ public class HashMap<K, V> implements MyMap<K, V> { // ToDo: проверить 
     private Node<K, V>[] ar;
 
     HashMap(){
-        ar = (Node<K,V>[])new Node[1000]; //ToDo: fix - ?
+        ar = (Node<K,V>[])new Node[1000];
     }
 
     HashMap(int sz){
@@ -16,10 +16,14 @@ public class HashMap<K, V> implements MyMap<K, V> { // ToDo: проверить 
     }
     public int hash(Object key) {
         int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16); //ToDo: алгоритм
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
     public void put(K key, V value){
-        ar[hash(key)] = new Node<K, V>(key, value); //ToDo: добавить хэширование с цепочками, проверка флага
+       /* if (ar[hash(key)] != null && !ar[hash(key)].isDeletedFlag()) {
+            Node tmp = ar[hash(key)];
+            ar[hash(key)] = new Node[2];
+        }*/
+        ar[hash(key)] = new Node<K, V>(key, value); //ToDo: добавить хэширование с цепочками
         cnt++;
     }
     public V get(K key){
@@ -48,7 +52,7 @@ public class HashMap<K, V> implements MyMap<K, V> { // ToDo: проверить 
         public final String toString() { return key + "=" + value; }
         public final int hashCode() {
             return Objects.hashCode(key) ^ Objects.hashCode(value);
-        } //ToDo: ?
+        }
         public final V setValue(V newValue) {
             V oldValue = value;
             value = newValue;
