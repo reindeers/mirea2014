@@ -21,11 +21,10 @@ public class PointPerimeter {
     public static double perimeter(Point[] points){
         double result = 0;
         for (int i=0; i < points.length; i++){
-            if (i == points.length-1) result = result + dist(points[i], points[0]);
-            else result = result + dist(points[i], points[i+1]);
-
+                result += dist(points[i], points[i+1]);
         }
-
+        result += dist(points[points.length-1], points[0]);
         return result;
     }
 }
+
