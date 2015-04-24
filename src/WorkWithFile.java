@@ -5,29 +5,31 @@ import java.io.*;
  * Написать метод, который принимает имя файла и читает все его строки. Для каждой строки в файле нужно выполнять различные действия:
  * просто посчитать количество строк, вывести строки на экран, возможны и другие действия.
  */
- 
+
 public class WorkWithFile {
-    public static void getFile(String str, LineProcessor lf) {
-        try {
+    public static void getFile(String str, LineProcessor lf) throws IOException {
+        
             File f = new File(str);
             BufferedReader fin = new BufferedReader(new FileReader(f));
-            String line = null;
-            do {
-                line = fin.readLine();
-                if (line != null) {
-                    lf.processLine(line);
-                }
 
-            }while (line != null);
-        } catch (IOException e) { }
+            while (true) {
+                String line = fin.readLine();
+                if (line == null)
+                    break;
+                lf.processLine(line);
+            }
+
+            fin.close();
+
+        
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-       OnlyCountLines whatToDo = new OnlyCountLines();
-       getFile("C:\\Users\\m.vlasova\\Documents\\test.txt", whatToDo);
-       System.out.println(whatToDo.getCount());
+        OnlyCountLines whatToDo = new OnlyCountLines();
+        getFile("C:\\Users\\m.vlasova\\Documents\\test.txt", whatToDo);
+        System.out.println(whatToDo.getCount());
 
         ReadAllLines whatToDo2 = new ReadAllLines();
         getFile("C:\\Users\\m.vlasova\\Documents\\test.txt", whatToDo2);
