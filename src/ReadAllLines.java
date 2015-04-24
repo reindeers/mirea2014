@@ -11,10 +11,6 @@ public class ReadAllLines implements LineProcessor {
     }
 
     public String[] getAllLines(){
-        String[] rs = new String[this.lines.size()];
-        for(int i=0; i < this.lines.size(); i++){
-            rs[i] = this.lines.get(i);
-        }
-        return rs;
+        return lines.toArray(new String[lines.size()]);
     }
 }
