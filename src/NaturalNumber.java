@@ -1,20 +1,22 @@
 import java.math.BigInteger;
+import java.util.Iterator;
 
 
 /**
  * Created by sever on 22.03.2015.
  */
-public class NaturalNumber implements Iterator{
+public class NaturalNumber implements Iterator<BigInteger>{
     private BigInteger cnt = new BigInteger("0");
-    private BigInteger c = new BigInteger("1");
 
     public BigInteger next(){
-        cnt = cnt.add(c);
+        cnt = cnt.add(BigInteger.ONE);
         return cnt;
     }
 
     public boolean hasNext(){
         return true;
     }
+
+    public void remove(){ }
 
 }
